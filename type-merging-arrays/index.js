@@ -24,7 +24,14 @@ async function makeGatewaySchema() {
             fieldName: 'manufacturers',
             key: ({ id }) => id, // pluck a key from each record in the array
             argsFromKeys: (ids) => ({ ids }), // format all plucked keys into query args
-          }
+          },
+
+          TaylorThing: {
+            selectionSet: '{ meta1, meta2 }',
+            fieldName: '_manTaylorThings',
+            key: ({ meta1, meta2 }) => ({ meta1, meta2 }), // pluck a key from each record in the array
+            argsFromKeys: (filters) => ({ filters }), // format all plucked keys into query args
+          },
         }
       },
       {

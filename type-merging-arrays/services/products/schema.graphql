@@ -1,13 +1,23 @@
-type Product {
+type Product { # This is Person
   manufacturer: Manufacturer
   name: String!
   price: Float!
   upc: ID!
+  things: [TaylorThing!] # This is plans on the Person
 }
 
 type Manufacturer {
   id: ID!
   products: [Product]!
+}
+
+type TaylorThing { # This is Plan
+  id: ID!
+  meta1: String
+  meta2: String
+  attr1: String
+  attr2: String
+  attr3: String
 }
 
 type Query {

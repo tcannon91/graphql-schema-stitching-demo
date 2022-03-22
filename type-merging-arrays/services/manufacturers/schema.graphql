@@ -3,6 +3,17 @@ type Manufacturer {
   name: String!
 }
 
+type TaylorThing { # This is Plan
+  id: ID!
+  attr4: String
+}
+
+input TaylorThingsFilter {
+  meta1: String
+  meta2: String
+}
+
 type Query {
   manufacturers(ids: [ID!]!): [Manufacturer]!
+  _manTaylorThings(filters: [TaylorThingsFilter]): [TaylorThing!] # Plans by startDateEndDateMemberIdLOB
 }
